@@ -93,13 +93,13 @@ export class PhaserRenderer implements IRenderer {
 
       const config: Phaser.Types.Core.GameConfig = {
         type: Phaser.AUTO,
-        width: 800,
-        height: 450,
-        parent: container,
         backgroundColor: '#0f172a',
         scale: {
+          parent: container,
           mode: Phaser.Scale.FIT,
           autoCenter: Phaser.Scale.CENTER_BOTH,
+          width: 800,
+          height: 450,
         },
         callbacks: {
           postBoot: () => resolve(),

@@ -26,7 +26,7 @@
 
 ## 3. Five Non-Negotiable Anti-Bug Invariants
 
-1. **GPU / VRAM Disposal**: In Three.js call `.dispose()` on geometries, materials, textures, and render targets; in PixiJS call `.destroy(true, { children: true })`; in Phaser call `game.destroy(true)`.
+1. **GPU / VRAM Disposal**: In Three.js call `.dispose()` on geometries, materials, textures, and render targets; in PixiJS call `app.destroy({ removeView: true, releaseGlobalResources: true }, { children: true, texture: true, textureSource: true })`; in Phaser call `game.destroy(true)`.
 2. **No Game Logic in Renderers / HUD**: All rules live in `src/core/simulation.ts`. All UI/menus live in `index.html` + `src/ui/hud.ts`.
 3. **Physics / Visual Sync**: Keep `Object3D` parent scales at `(1, 1, 1)` so raycasts and colliders stay true; clamp DPR to `2`.
 4. **Mobile & iOS Safari Audio/Touch**: Apply `touch-action: none` and `env(safe-area-inset-*)`. Activate touch pads **only** on `pointerType === 'touch'` (never `ontouchstart` or `maxTouchPoints`). Unlock `AudioContext` on first gesture and resume on `visibilitychange`.

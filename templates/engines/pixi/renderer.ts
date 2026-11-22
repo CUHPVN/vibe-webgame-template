@@ -103,12 +103,12 @@ export class PixiRenderer implements IRenderer {
   dispose(): void {
     this.graphics?.destroy();
     this.graphics = null;
-    this.app?.destroy(true, { children: true });
+    this.app?.destroy(
+      { removeView: true, releaseGlobalResources: true },
+      { children: true, texture: true, textureSource: true }
+    );
     this.app = null;
-    if (this.container) {
-      this.container.innerHTML = '';
-      this.container = null;
-    }
+    this.container = null;
   }
 }
 

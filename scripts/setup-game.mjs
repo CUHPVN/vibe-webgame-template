@@ -36,7 +36,7 @@ const ENGINES = {
     devDeps: {},
     guardrails: [
       'Always use PixiJS v8 APIs: `const app = new Application(); await app.init({ ... });` inside an async function (no top-level await, no Pixi v7 constructor options).',
-      'Use `app.canvas` (never `app.view`), `Graphics` v8 `.rect().fill()` chain, and `app.destroy(true, { children: true })` in `dispose()`.',
+      'Use `app.canvas` (never `app.view`), `Graphics` v8 `.rect().fill()` chain, and `app.destroy({ removeView: true, releaseGlobalResources: true }, { children: true, texture: true, textureSource: true })` in `dispose()`.',
     ],
     externalSkills: 'npx skills add https://github.com/pixijs/pixijs-skills',
     extraMcp: 'Use Context7 for PixiJS v8 + pixijs.com/llms.',
