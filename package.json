@@ -1,0 +1,28 @@
+{
+  "name": "vibe-webgame-template",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Universal clone-ready template for Vibe Coding 2D & 3D Web Games with strict architecture, deterministic test hooks, ZzFX audio, and multi-engine presets.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "verify:browser": "node scripts/verify-playtest.mjs",
+    "budget": "node scripts/check-budget.mjs",
+    "verify": "npm run typecheck && npm test && npm run build && npm run budget && npm run verify:browser",
+    "setup": "node scripts/setup-game.mjs"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@playwright/test": "^1.65.1",
+    "@types/node": "^24.0.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.8",
+    "vitest": "^5.1.1"
+  }
+}

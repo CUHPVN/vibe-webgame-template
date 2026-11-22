@@ -1,0 +1,11 @@
+---
+description: Core architectural invariants, 6-step vibe coding loop, and verification gate for WebGame projects
+alwaysApply: true
+---
+
+Read and follow `AGENTS.md` and `progress.md` at the repository root.
+
+- Keep `src/core/` free of DOM/Canvas/Engine dependencies so `vitest` unit tests run fast and deterministically.
+- Update DOM UI only via `EventBus` events in `src/ui/hud.ts`.
+- Never use `'ontouchstart' in window` or raw `localStorage`; use `InputManager` (`pointerType === 'touch'`) and `SafeStorage`.
+- Always run `npm run verify` after gameplay or rendering edits.

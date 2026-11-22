@@ -1,0 +1,10 @@
+---
+description: WebGL2 and WebGPU TSL shader authoring & disposal guardrails
+globs: src/shaders/**
+alwaysApply: false
+---
+
+- Keep shader files small, modular, and free of hardcoded screen-resolution assumptions (pass `uResolution` / DPR-aware uniforms).
+- Prefer Three.js r186+ TSL / `WebGPURenderer`-compatible node materials when targeting WebGPU; keep GLSL fallbacks clean.
+- Always dispose compiled `ShaderMaterial`, `BufferGeometry`, and custom `WebGLRenderTarget` instances on scene switch or renderer `dispose()`.
+- Verify 0 WebGL/WebGPU shader compilation warnings in browser console via `npm run verify:browser`.

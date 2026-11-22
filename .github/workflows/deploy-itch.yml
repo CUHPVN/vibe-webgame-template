@@ -1,0 +1,33 @@
+name: Deploy to itch.io
+
+on:
+  workflow_dispatch:
+    inputs:
+      channel:
+        description: itch.io target (username/game:html5)
+        required: true
+        type: string
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install, Build & Check Budget
+        run: npm ci && npm run build && npm run budget
+
+      - name: Setup Butler CLI
+        uses: remarkablegames/setup-butler@v3
+        with:
+          butler_api_key: ${{ secrets.BUTLER_API_KEY }}
+
+      - name: Push dist to itch.io
+        run: butler push ./dist "${{ inputs.channel }}"

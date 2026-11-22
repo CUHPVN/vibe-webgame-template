@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
+    <title>Vibe WebGame Starter</title>
+  </head>
+  <body>
+    <main id="app" data-touch-active="false">
+      <div id="game-stage" aria-label="Game Canvas"></div>
+
+      <div id="ui-root">
+        <header id="hud-bar" class="hud-bar" hidden>
+          <div class="hud-group">
+            <span class="hud-pill">Score <strong id="hud-score">0</strong></span>
+            <span class="hud-pill">Best <strong id="hud-best">0</strong></span>
+            <span class="hud-pill">HP <strong id="hud-hp">3</strong></span>
+          </div>
+          <div class="hud-group">
+            <button id="btn-mute" type="button" class="hud-btn" aria-label="Toggle Sound">
+              SFX: ON
+            </button>
+            <button id="btn-pause" type="button" class="hud-btn" aria-label="Pause Game">
+              Pause
+            </button>
+          </div>
+        </header>
+
+        <section id="screen-menu" class="overlay-card" aria-labelledby="menu-title">
+          <p class="eyebrow">Universal Vibe WebGame Starter</p>
+          <h1 id="menu-title">STAR DASH</h1>
+          <p class="subtitle">
+            Collect glowing stars, dodge bouncing hazards, and build streaks. Move with
+            <kbd>WASD</kbd> or <kbd>Arrows</kbd>.
+          </p>
+          <div class="actions">
+            <button id="btn-start" type="button" class="primary-btn">Start Game</button>
+            <button id="btn-menu-mute" type="button" class="secondary-btn">SFX: ON</button>
+          </div>
+        </section>
+
+        <section id="screen-pause" class="overlay-card" aria-labelledby="pause-title" hidden>
+          <h2 id="pause-title">PAUSED</h2>
+          <p class="subtitle">Press <kbd>Esc</kbd> or <kbd>P</kbd> to resume.</p>
+          <div class="actions">
+            <button id="btn-resume" type="button" class="primary-btn">Resume</button>
+            <button id="btn-pause-restart" type="button" class="secondary-btn">Restart</button>
+          </div>
+        </section>
+
+        <section id="screen-gameover" class="overlay-card" aria-labelledby="gameover-title" hidden>
+          <p class="eyebrow">Run Complete</p>
+          <h2 id="gameover-title">GAME OVER</h2>
+          <p class="subtitle">
+            Final Score: <strong id="final-score">0</strong> &middot; Best:
+            <strong id="final-best">0</strong>
+          </p>
+          <div class="actions">
+            <button id="btn-restart" type="button" class="primary-btn">Play Again</button>
+          </div>
+        </section>
+
+        <div id="touch-controls" class="touch-controls" aria-hidden="true">
+          <div class="dpad">
+            <button type="button" class="pad-btn pad-up" data-dir="up" aria-label="Move Up">
+              ▲
+            </button>
+            <button type="button" class="pad-btn pad-left" data-dir="left" aria-label="Move Left">
+              ◀
+            </button>
+            <button type="button" class="pad-btn pad-right" data-dir="right" aria-label="Move Right">
+              ▶
+            </button>
+            <button type="button" class="pad-btn pad-down" data-dir="down" aria-label="Move Down">
+              ▼
+            </button>
+          </div>
+          <button
+            type="button"
+            id="btn-touch-action"
+            class="action-pad-btn"
+            aria-label="Dash Boost"
+          >
+            DASH
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,9 @@
+# Third-Party Credits & Asset Licenses
+
+Record every external asset, library, and sound effect here before publishing.
+Never ship CC BY-NC assets in commercial/ad-supported builds, and check GPL / CC BY-SA obligations.
+
+| Asset / Library | Author / Source | License | Attribution Required? | Notes |
+| --- | --- | --- | --- | --- |
+| ZzFX Synthesizer (embedded procedural SFX) | Frank Force (KilledByAPixel) | MIT | Included in source | < 1 KB procedural audio, zero external requests |
+| Starter Canvas/UI Icons | Procedural (built-in) | CC0 / MIT | No | Self-contained |
